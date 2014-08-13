@@ -1,0 +1,38 @@
+{
+  "name": "download-status",
+  "version": "0.1.0",
+  "description": "Progress bar plugin for download",
+  "license": "MIT",
+  "repository": "kevva/download-status",
+  "author": {
+    "name": "Kevin Mårtensson",
+    "email": "kevinmartensson@gmail.com",
+    "url": "https://github.com/kevva"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "bar",
+    "download",
+    "downloadplugin",
+    "http",
+    "progress",
+    "request",
+    "status",
+    "url"
+  ],
+  "dependencies": {
+    "progress": "^1.1.8"
+  },
+  "devDependencies": {
+    "ava": "0.0.3",
+    "download": "^0.2.1"
+  }
+}
