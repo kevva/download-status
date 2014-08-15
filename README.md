@@ -28,6 +28,13 @@ download.run(function (err) {
 
 ```
 
+## API
+
+### progress(opts)
+
+Pass in [options](https://github.com/visionmedia/node-progress#options) to customize 
+the look of the progress bar.
+
 ## License
 
 MIT © [Kevin Mårtensson](http://kevinmartensson.com)
