@@ -25,7 +25,6 @@ download.run(function (err) {
 
     console.log('Download finished!');
 });
-
 ```
 
 ## API
