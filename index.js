@@ -1,6 +1,7 @@
 'use strict';
 
 var assign = require('object-assign');
+var chalk = require('chalk');
 var ProgressBar = require('progress');
 
 /**
@@ -11,14 +12,21 @@ var ProgressBar = require('progress');
  */
 
 module.exports = function (opts) {
-    return function (res) {
+    return function (res, file) {
+        opts = opts || { info: 'cyan' };
+
+        var msg = chalk[opts.info]('  downloading') + ' : ' + file.url;
+        var info = chalk[opts.info]('     progress') + ' : [:bar] :percent :etas';
         var len = parseInt(res.headers['content-length'], 10);
-        var bar = new ProgressBar('  downloading [:bar] :percent :etas', assign({
+
+        var bar = new ProgressBar(info, assign({
             complete: '=',
             incomplete: ' ',
             width: 20,
             total: len
-        }, opts || {}));
+        }, opts));
+
+        console.log(msg);
 
         res.on('data', function (data) {
             bar.tick(data.length);

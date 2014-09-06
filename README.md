@@ -2,7 +2,7 @@
 
 > Progress bar plugin for download
 
-![](https://cloud.githubusercontent.com/assets/709159/3942877/5c8112b0-257c-11e4-9f4a-0fa2a0187b04.png)
+![](https://cloud.githubusercontent.com/assets/709159/4175732/534ac138-35e3-11e4-80a2-dea9a8af1fb5.png)
 
 ## Install
 
