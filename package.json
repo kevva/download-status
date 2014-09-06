@@ -1,6 +1,6 @@
 {
   "name": "download-status",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Progress bar plugin for download",
   "license": "MIT",
   "repository": "kevva/download-status",
