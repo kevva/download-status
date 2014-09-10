@@ -12,7 +12,7 @@ var ProgressBar = require('progress');
  */
 
 module.exports = function (opts) {
-    return function (res, file) {
+    return function (res, file, cb) {
         opts = opts || { info: 'cyan' };
 
         var msg = chalk[opts.info]('  downloading') + ' : ' + file.url;
@@ -34,6 +34,7 @@ module.exports = function (opts) {
 
         res.on('end', function () {
             console.log('\n');
+            cb();
         });
     };
 };
