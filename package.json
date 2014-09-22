@@ -35,6 +35,6 @@
   },
   "devDependencies": {
     "ava": "^0.0.4",
-    "download": "^1.0.6"
+    "download": "^3.0.0"
   }
 }

@@ -12,10 +12,10 @@ var ProgressBar = require('progress');
  */
 
 module.exports = function (opts) {
-    return function (res, file, cb) {
+    return function (res, url, cb) {
         opts = opts || { info: 'cyan' };
 
-        var msg = chalk[opts.info]('  downloading') + ' : ' + file.url;
+        var msg = chalk[opts.info]('  downloading') + ' : ' + url;
         var info = chalk[opts.info]('     progress') + ' : [:bar] :percent :etas';
         var len = parseInt(res.headers['content-length'], 10);
 
