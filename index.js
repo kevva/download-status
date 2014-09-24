@@ -33,7 +33,6 @@ module.exports = function (opts) {
         });
 
         res.on('end', function () {
-            console.log('\n');
             cb();
         });
     };
