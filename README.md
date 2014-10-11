@@ -17,16 +17,16 @@ var Download = require('download');
 var progress = require('download-status');
 
 var download = new Download({ extract: true, strip: 1 })
-    .get('http://example.com/file.zip')
-    .dest('dest')
-    .use(progress());
+	.get('http://example.com/file.zip')
+	.dest('dest')
+	.use(progress());
 
 download.run(function (err) {
-    if (err) {
-        throw err;
-    }
+	if (err) {
+		throw err;
+	}
 
-    console.log('Download finished!');
+	console.log('Download finished!');
 });
 ```
 

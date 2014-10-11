@@ -7,33 +7,34 @@ var ProgressBar = require('progress');
 /**
  * Progress bar download plugin
  *
- * @param {Object} res
+ * @param {Object} opts
  * @api public
  */
 
 module.exports = function (opts) {
-    return function (res, url, cb) {
-        opts = opts || { info: 'cyan' };
+	return function (res, url, cb) {
+		opts = opts || { info: 'cyan' };
 
-        var msg = chalk[opts.info]('  downloading') + ' : ' + url;
-        var info = chalk[opts.info]('     progress') + ' : [:bar] :percent :etas';
-        var len = parseInt(res.headers['content-length'], 10);
+		var msg = chalk[opts.info]('  downloading') + ' : ' + url;
+		var info = chalk[opts.info]('     progress') + ' : [:bar] :percent :etas';
+		var len = parseInt(res.headers['content-length'], 10);
 
-        var bar = new ProgressBar(info, assign({
-            complete: '=',
-            incomplete: ' ',
-            width: 20,
-            total: len
-        }, opts));
+		var bar = new ProgressBar(info, assign({
+			complete: '=',
+			incomplete: ' ',
+			width: 20,
+			total: len
+		}, opts));
 
-        console.log(msg);
+		console.log(msg);
 
-        res.on('data', function (data) {
-            bar.tick(data.length);
-        });
+		res.on('data', function (data) {
+			bar.tick(data.length);
+		});
 
-        res.on('end', function () {
-            cb();
-        });
-    };
+		res.on('end', function () {
+			console.log('\n');
+			cb();
+		});
+	};
 };
