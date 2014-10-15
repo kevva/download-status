@@ -14,6 +14,7 @@ var ProgressBar = require('progress');
 module.exports = function (opts) {
 	return function (res, url, cb) {
 		opts = opts || { info: 'cyan' };
+		opts.stream = opts.stream || process.stderr;
 
 		if (res.headers['content-length']) {
 			var msg = chalk[opts.info]('  downloading') + ' : ' + url;
@@ -27,14 +28,14 @@ module.exports = function (opts) {
 				total: len
 			}, opts));
 
-			console.log(msg);
+			opts.stream.write(msg);
 
 			res.on('data', function (data) {
 				bar.tick(data.length);
 			});
 
 			res.on('end', function () {
-				console.log('\n');
+				opts.stream.write('\n');
 				cb();
 			});
 		}
