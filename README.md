@@ -34,7 +34,7 @@ download.run(function (err) {
 
 ### progress(opts)
 
-Pass in [options](https://github.com/visionmedia/node-progress#options) to customize 
+Pass in [options](https://github.com/tj/node-progress#options) to customize 
 the look of the progress bar.
 
 ## License
