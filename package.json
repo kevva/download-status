@@ -31,7 +31,7 @@
   "dependencies": {
     "chalk": "^0.5.1",
     "lpad-align": "^1.0.0",
-    "object-assign": "^1.0.0",
+    "object-assign": "^2.0.0",
     "progress": "^1.1.8"
   },
   "devDependencies": {

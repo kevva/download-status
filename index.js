@@ -28,7 +28,7 @@ module.exports = function (opts) {
 			var progress = chalk.cyan(lpad('progress', words, opts.indent));
 			var str = progress + ' : [:bar] :percent :etas';
 
-			var bar = new ProgressBar(str, assign({}, {
+			var bar = new ProgressBar(str, assign({
 				complete: '=',
 				incomplete: ' ',
 				width: 20,
