@@ -5,13 +5,6 @@ var chalk = require('chalk');
 var lpad = require('lpad-align');
 var ProgressBar = require('progress');
 
-/**
- * Progress bar download plugin
- *
- * @param {Object} opts
- * @api public
- */
-
 module.exports = function (opts) {
 	return function (res, url, cb) {
 		opts = opts || {};

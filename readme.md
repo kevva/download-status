@@ -4,11 +4,13 @@
 
 ![](https://cloud.githubusercontent.com/assets/709159/4175732/534ac138-35e3-11e4-80a2-dea9a8af1fb5.png)
 
+
 ## Install
 
 ```bash
 $ npm install --save download-status
 ```
+
 
 ## Usage
 
@@ -30,12 +32,14 @@ download.run(function (err) {
 });
 ```
 
+
 ## API
 
-### progress(opts)
+### progress(options)
 
 Pass in [options](https://github.com/tj/node-progress#options) to customize 
 the look of the progress bar.
+
 
 ## License
 
