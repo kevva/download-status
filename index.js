@@ -1,9 +1,9 @@
 'use strict';
 
-var assign = require('object-assign');
+var objectAssign = require('object-assign');
 var chalk = require('chalk');
-var lpad = require('lpad-align');
-var ProgressBar = require('progress');
+var lpadAlign = require('lpad-align');
+var Progress = require('progress');
 
 module.exports = function (opts) {
 	return function (res, url, cb) {
@@ -17,11 +17,11 @@ module.exports = function (opts) {
 				'progress'
 			];
 
-			var fetch = chalk.cyan(lpad('fetch', words, opts.indent));
-			var progress = chalk.cyan(lpad('progress', words, opts.indent));
+			var fetch = chalk.cyan(lpadAlign('fetch', words, opts.indent));
+			var progress = chalk.cyan(lpadAlign('progress', words, opts.indent));
 			var str = progress + ' : [:bar] :percent :etas';
 
-			var bar = new ProgressBar(str, assign({
+			var bar = new Progress(str, objectAssign({
 				complete: '=',
 				incomplete: ' ',
 				width: 20,

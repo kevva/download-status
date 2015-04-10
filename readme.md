@@ -7,7 +7,7 @@
 
 ## Install
 
-```bash
+```
 $ npm install --save download-status
 ```
 
@@ -16,26 +16,19 @@ $ npm install --save download-status
 
 ```js
 var Download = require('download');
-var progress = require('download-status');
+var downloadStatus = require('download-status');
 
 var download = new Download({ extract: true, strip: 1 })
 	.get('http://example.com/file.zip')
 	.dest('dest')
-	.use(progress());
-
-download.run(function (err) {
-	if (err) {
-		throw err;
-	}
-
-	console.log('Download finished!');
-});
+	.use(downloadStatus())
+	.run();
 ```
 
 
 ## API
 
-### progress(options)
+### downloadStatus(options)
 
 Pass in [options](https://github.com/tj/node-progress#options) to customize 
 the look of the progress bar.
