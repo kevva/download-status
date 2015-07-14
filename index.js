@@ -1,5 +1,4 @@
 'use strict';
-
 var objectAssign = require('object-assign');
 var chalk = require('chalk');
 var lpadAlign = require('lpad-align');
@@ -33,6 +32,7 @@ module.exports = function (opts) {
 			bar.total += parseInt(res.headers['content-length'], 10);
 
 			var fetch = chalk.cyan(lpadAlign('fetch', words, opts.indent));
+
 			opts.stream.clearLine();
 			opts.stream.cursorTo(0);
 			opts.stream.write(fetch + ' : ' + url + '\n');

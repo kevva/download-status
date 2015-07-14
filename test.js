@@ -1,5 +1,4 @@
 'use strict';
-
 var Download = require('download');
 var test = require('ava');
 var downloadStatus = require('./');

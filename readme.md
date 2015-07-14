@@ -18,7 +18,7 @@ $ npm install --save download-status
 var Download = require('download');
 var downloadStatus = require('download-status');
 
-var download = new Download({ extract: true, strip: 1 })
+var download = new Download({extract: true, strip: 1})
 	.get('http://example.com/file.zip')
 	.dest('dest')
 	.use(downloadStatus())
