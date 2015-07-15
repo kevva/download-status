@@ -27,27 +27,30 @@ module.exports = function (opts) {
 	var streams = 0;
 
 	return function (res, url, cb) {
-		if (res.headers['content-length'] && opts.stream.isTTY) {
-			streams ++;
-			bar.total += parseInt(res.headers['content-length'], 10);
-
-			var fetch = chalk.cyan(lpadAlign('fetch', words, opts.indent));
-
-			opts.stream.clearLine();
-			opts.stream.cursorTo(0);
-			opts.stream.write(fetch + ' : ' + url + '\n');
-
-			res.on('data', function (data) {
-				bar.tick(data.length);
-			});
-
-			res.on('end', function () {
-				if (--streams === 0) {
-					opts.stream.write('\n');
-				}
-
-				cb();
-			});
+		if (!res.headers['content-length'] || !opts.stream.isTTY) {
+			cb();
+			return;
 		}
+
+		streams ++;
+		bar.total += parseInt(res.headers['content-length'], 10);
+
+		var fetch = chalk.cyan(lpadAlign('fetch', words, opts.indent));
+
+		opts.stream.clearLine();
+		opts.stream.cursorTo(0);
+		opts.stream.write(fetch + ' : ' + url + '\n');
+
+		res.on('data', function (data) {
+			bar.tick(data.length);
+		});
+
+		res.on('end', function () {
+			if (--streams === 0) {
+				opts.stream.write('\n');
+			}
+
+			cb();
+		});
 	};
 };

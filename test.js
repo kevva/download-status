@@ -32,3 +32,18 @@ test('ignore output with non-tty streams', function (t) {
 			t.assert(files[0].path === 'master.zip', files[0].path);
 		});
 });
+
+test('do not block next middleware', function (t) {
+	t.plan(1);
+
+	var called;
+	new Download()
+		.get('https://github.com/imagemin/optipng-bin/archive/master.zip')
+		.use(downloadStatus({stream: new Writable()}))
+		.use(function (res) {
+			called = res;
+		})
+		.run(function () {
+			t.assert(called !== undefined);
+		});
+});
