@@ -27,7 +27,7 @@ module.exports = function (opts) {
 	var streams = 0;
 
 	return function (res, url, cb) {
-		if (res.headers['content-length']) {
+		if (res.headers['content-length'] && opts.stream.isTTY) {
 			streams ++;
 			bar.total += parseInt(res.headers['content-length'], 10);
 
